@@ -1,0 +1,209 @@
+{
+    "a_galaxy_workflow": "true", 
+    "format-version": "0.1", 
+    "name": "GISL Preliminary workflow", 
+    "steps": {
+        "1": {
+            "inputs": [
+                {
+                    "description": "Battenberg copy number abbreviation calling", 
+                    "name": "CNA_INPUT"
+                }
+            ], 
+            "uuid": "48366fc3-871e-4e58-a3a4-f27eb660550d", 
+            "user_outputs": [], 
+            "tool_id": null, 
+            "outputs": [], 
+            "tool_version": null, 
+            "annotation": "Battenberg copy number abbreviation calling", 
+            "input_connections": {}, 
+            "tool_errors": null, 
+            "position": {
+                "top": 303, 
+                "left": 120.5
+            }, 
+            "tool_state": "{\"name\": \"CNA_INPUT\"}", 
+            "label": null, 
+            "type": "data_input", 
+            "id": 1, 
+            "name": "Input dataset"
+        }, 
+        "0": {
+            "inputs": [
+                {
+                    "description": "MuTect somatic mutation callings", 
+                    "name": "VCF_INPUT"
+                }
+            ], 
+            "uuid": "5f2ffbdf-59be-45cc-af96-fd3f0ee93873", 
+            "user_outputs": [], 
+            "tool_id": null, 
+            "outputs": [], 
+            "tool_version": null, 
+            "annotation": "MuTect somatic mutation callings", 
+            "input_connections": {}, 
+            "tool_errors": null, 
+            "position": {
+                "top": 219, 
+                "left": 116.5
+            }, 
+            "tool_state": "{\"name\": \"VCF_INPUT\"}", 
+            "label": null, 
+            "type": "data_input", 
+            "id": 0, 
+            "name": "Input dataset"
+        }, 
+        "3": {
+            "tool_id": "smc_het_eval", 
+            "uuid": "ac90fa2b-6d04-4697-b6cd-d8ecffb6d51d", 
+            "user_outputs": [], 
+            "tool_version": "0.1.0", 
+            "outputs": [
+                {
+                    "type": "txt", 
+                    "name": "outfile"
+                }
+            ], 
+            "post_job_actions": {}, 
+            "annotation": "", 
+            "input_connections": {
+                "cluster_assignment|predfile": {
+                    "output_name": "2A", 
+                    "id": 2
+                }, 
+                "cellularity|predfile": {
+                    "output_name": "1A", 
+                    "id": 2
+                }, 
+                "cocluster_assignment|predfile": {
+                    "output_name": "2B", 
+                    "id": 2
+                }, 
+                "cocluster_assignment|ancestor|predfile": {
+                    "output_name": "3B", 
+                    "id": 2
+                }, 
+                "proportion|predfile": {
+                    "output_name": "1C", 
+                    "id": 2
+                }, 
+                "population|predfile": {
+                    "output_name": "1B", 
+                    "id": 2
+                }, 
+                "cluster_assignment|phylogeny|predfile": {
+                    "output_name": "3A", 
+                    "id": 2
+                }
+            }, 
+            "inputs": [], 
+            "tool_errors": null, 
+            "position": {
+                "top": 199.5, 
+                "left": 646.5
+            }, 
+            "tool_state": "{\"cocluster_assignment\": \"{\\\"ancestor\\\": {\\\"predfile\\\": null, \\\"submit\\\": \\\"yes\\\", \\\"__current_case__\\\": 0}, \\\"predfile\\\": null, \\\"submit\\\": \\\"yes\\\", \\\"__current_case__\\\": 0}\", \"__page__\": 0, \"approx\": \"{\\\"enable\\\": \\\"no\\\", \\\"__current_case__\\\": 1}\", \"__rerun_remap_job_id__\": null, \"proportion\": \"{\\\"predfile\\\": null, \\\"submit\\\": \\\"yes\\\", \\\"__current_case__\\\": 0}\", \"sample\": \"\\\"/opt/galaxy/data/Tumour1/Tumour1\\\"\", \"cellularity\": \"{\\\"predfile\\\": null, \\\"submit\\\": \\\"yes\\\", \\\"__current_case__\\\": 0}\", \"cluster_assignment\": \"{\\\"predfile\\\": null, \\\"phylogeny\\\": {\\\"predfile\\\": null, \\\"submit\\\": \\\"yes\\\", \\\"__current_case__\\\": 0}, \\\"submit\\\": \\\"yes\\\", \\\"__current_case__\\\": 0}\", \"population\": \"{\\\"predfile\\\": null, \\\"submit\\\": \\\"yes\\\", \\\"__current_case__\\\": 0}\"}", 
+            "label": null, 
+            "type": "tool", 
+            "id": 3, 
+            "name": "SMC-Het Evaluator"
+        }, 
+        "2": {
+            "tool_id": "GISL_tool", 
+            "uuid": "6f9b6714-d67b-4fb3-b6e4-9e0adf4759d8", 
+            "user_outputs": [], 
+            "tool_version": "2.0.0", 
+            "outputs": [
+                {
+                    "type": "txt", 
+                    "name": "1A"
+                }, 
+                {
+                    "type": "txt", 
+                    "name": "1B"
+                }, 
+                {
+                    "type": "txt", 
+                    "name": "1C"
+                }, 
+                {
+                    "type": "txt", 
+                    "name": "2A"
+                }, 
+                {
+                    "type": "txt", 
+                    "name": "2B"
+                }, 
+                {
+                    "type": "txt", 
+                    "name": "3A"
+                }, 
+                {
+                    "type": "txt", 
+                    "name": "3B"
+                }
+            ], 
+            "post_job_actions": {
+                "HideDatasetAction3A": {
+                    "output_name": "3A", 
+                    "action_type": "HideDatasetAction", 
+                    "action_arguments": {}
+                }, 
+                "HideDatasetAction2A": {
+                    "output_name": "2A", 
+                    "action_type": "HideDatasetAction", 
+                    "action_arguments": {}
+                }, 
+                "HideDatasetAction2B": {
+                    "output_name": "2B", 
+                    "action_type": "HideDatasetAction", 
+                    "action_arguments": {}
+                }, 
+                "HideDatasetAction1B": {
+                    "output_name": "1B", 
+                    "action_type": "HideDatasetAction", 
+                    "action_arguments": {}
+                }, 
+                "HideDatasetAction1C": {
+                    "output_name": "1C", 
+                    "action_type": "HideDatasetAction", 
+                    "action_arguments": {}
+                }, 
+                "HideDatasetAction1A": {
+                    "output_name": "1A", 
+                    "action_type": "HideDatasetAction", 
+                    "action_arguments": {}
+                }, 
+                "HideDatasetAction3B": {
+                    "output_name": "3B", 
+                    "action_type": "HideDatasetAction", 
+                    "action_arguments": {}
+                }
+            }, 
+            "annotation": "", 
+            "input_connections": {
+                "input_vcf": {
+                    "output_name": "output", 
+                    "id": 0
+                }, 
+                "input_battenberg": {
+                    "output_name": "output", 
+                    "id": 1
+                }
+            }, 
+            "inputs": [], 
+            "tool_errors": null, 
+            "position": {
+                "top": 221, 
+                "left": 357
+            }, 
+            "tool_state": "{\"__page__\": 0, \"__rerun_remap_job_id__\": null, \"input_vcf\": \"null\", \"input_battenberg\": \"null\"}", 
+            "label": null, 
+            "type": "tool", 
+            "id": 2, 
+            "name": "GISL Preliminary Tool"
+        }
+    }, 
+    "annotation": "", 
+    "uuid": "ff8aa1b7-3813-440e-b5ec-a170cd02a6e1"
+}

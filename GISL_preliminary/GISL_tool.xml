@@ -1,0 +1,34 @@
+<?xml version="1.0" ?><tool id="GISL_tool" name="GISL Preliminary Tool" version="2.0.0">
+	<description/>
+	<requirements>
+		<container type="docker">docker.synapse.org/syn2813581/6087362/gisl_preliminary_tool</container>
+	</requirements>
+	<command interpreter="Rscript">
+GISL_smchet.R ${input_vcf} ${input_battenberg}
+	</command>
+
+	<inputs>
+		<param format="vcf" help="" label="VCF file" name="input_vcf" type="data"/>
+		<param format="tabular" help="" label="Battenberg file" name="input_battenberg" type="data"/>
+	</inputs>
+
+	<outputs>
+		<data format="txt" from_work_dir="GISL_subchallenge1A.txt" label="Cellularity (Sub Challenge 1A)" name="1A"/>
+		<data format="txt" from_work_dir="GISL_subchallenge1B.txt" label="Number of Subclones (Sub Challenge 1B)" name="1B"/>
+		<data format="txt" from_work_dir="GISL_subchallenge1C.txt" label="Subclone Proportions (Sub Challenge 1C)" name="1C"/>
+		<data format="txt" from_work_dir="GISL_subchallenge2A.txt" label="Mutation Assignments (Sub Challenge 2A)" name="2A"/>
+		<data format="txt" from_work_dir="GISL_subchallenge2B.txt" label="Co-Clustering Matrix (Sub Challenge 2B)" name="2B"/>
+		<data format="txt" from_work_dir="GISL_subchallenge3A.txt" label="Phylogeny Assignments (Sub Challenge 3A)" name="3A"/>
+		<data format="txt" from_work_dir="GISL_subchallenge3B.txt" label="Ancestor-Descendent Matrix (Sub Challenge 3B)" name="3B"/>
+	</outputs>
+
+	<help>
+You should totally explain how to use your tool here
+	</help>
+
+	<tests>
+		<test>
+		</test>
+	</tests>
+
+</tool>
